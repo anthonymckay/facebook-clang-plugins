@@ -503,7 +503,7 @@ void ASTExporter<ATDWriter>::dumpSourceLocation(SourceLocation Loc) {
     return;
   }
 
-  if (strcmp(PLoc.getFilename(), LastLocFilename) != 0) {
+  if (PLoc.getFilename()) {
     ObjectScope Scope(OF, 3);
     OF.emitTag("file");
     // Normalizing filenames matters because the current directory may change
